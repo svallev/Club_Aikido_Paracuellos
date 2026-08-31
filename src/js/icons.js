@@ -14,12 +14,13 @@ export function ensoSVG(size = '100%') {
   </svg>`;
 }
 
-/** Marca / logotipo: círculo con centro (hara). */
+/**
+ * Marca / logotipo del club.
+ * Imagen del escudo en public/images/logo-header.png. El texto «Aikido Paracuellos»
+ * adyacente aporta la etiqueta accesible, por eso la imagen va con alt vacío.
+ */
 export function brandMark() {
-  return `<svg viewBox="0 0 48 48" fill="none" aria-hidden="true" focusable="false" class="brand-mark">
-    <circle cx="24" cy="24" r="20" stroke="${STROKE}" stroke-width="2.5" stroke-linecap="round"/>
-    <circle cx="24" cy="24" r="7" fill="${STROKE}"/>
-  </svg>`;
+  return `<img class="brand-mark" src="/images/logo-header.png" alt="" width="64" height="64" />`;
 }
 
 function socialIcon(paths) {
