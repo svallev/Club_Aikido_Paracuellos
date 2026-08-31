@@ -52,6 +52,5 @@ skills-lock.json
 .eslintcache
 .stylelintcache
 
-# Documentación de configuración local del proyecto (no requerida para el despliegue)
-AGENTS.md
+# Especificación de diseño local (no se comparte; se referencia desde AGENTS.md)
 SPEC.md
