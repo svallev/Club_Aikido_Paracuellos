@@ -300,7 +300,7 @@
   border-bottom: 1px solid rgba(250, 247, 241, 0.14);
 }
 
-.footer h3 {
+.site-footer h3 {
   font-size: var(--text-sm);
   font-weight: 600;
   letter-spacing: var(--tracking-wide);
@@ -309,27 +309,45 @@
   margin-bottom: var(--space-3);
 }
 
-.footer address {
+.site-footer address {
   font-style: normal;
   line-height: 1.6;
   color: rgba(250, 247, 241, 0.9);
 }
 
-.footer a.footer-link {
+.site-footer a.footer-link,
+.site-footer address a {
   color: var(--paper);
   text-decoration: none;
 }
 
-.footer a.footer-link:hover {
+.site-footer address a:hover {
   text-decoration: underline;
 }
 
-.footer .socials {
-  display: flex;
+.site-footer a.footer-link:hover {
+  text-decoration: underline;
+}
+
+.site-footer .footer-contact {
+  display: inline-flex;
+  align-items: center;
   gap: var(--space-2);
 }
 
-.footer .socials a {
+.site-footer .footer-contact svg {
+  flex: none;
+  opacity: 0.85;
+}
+
+.site-footer .socials {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.site-footer .socials a {
   width: 44px;
   height: 44px;
   display: grid;
@@ -341,7 +359,7 @@
     transform var(--dur-fast) var(--ease-out), border-color var(--dur-fast) var(--ease-out);
 }
 
-.footer .socials a:hover {
+.site-footer .socials a:hover {
   background: rgba(250, 247, 241, 0.12);
   border-color: rgba(250, 247, 241, 0.4);
   transform: translateY(-2px);
