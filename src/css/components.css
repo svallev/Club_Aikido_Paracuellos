@@ -201,7 +201,7 @@
   background: var(--surface);
   border: 1px solid var(--hairline);
   border-radius: var(--radius);
-  padding: var(--space-6);
+  padding: var(--space-4);
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -210,7 +210,7 @@
 }
 
 .card__media {
-  margin: calc(-1 * var(--space-6)) calc(-1 * var(--space-6)) var(--space-5);
+  margin: calc(-1 * var(--space-4)) calc(-1 * var(--space-4)) var(--space-4);
   aspect-ratio: 3 / 2;
   overflow: hidden;
 }
@@ -333,6 +333,21 @@
   .split--flip > *:first-child {
     order: 2;
   }
+
+  .split--tight {
+    gap: var(--space-6);
+    align-items: start;
+  }
+
+  .split--40-60 {
+    grid-template-columns: 2fr 3fr;
+  }
+
+  /* Cuando se invierte (imagen a la derecha), mantén la imagen en la
+     columna estrecha (40%) y el texto en la ancha (60%). */
+  .split--40-60.split--flip {
+    grid-template-columns: 3fr 2fr;
+  }
 }
 
 /* ---- Horarios y clases ---- */
@@ -340,6 +355,14 @@
   display: grid;
   gap: var(--space-6);
   grid-template-columns: 1fr;
+}
+
+@media (min-width: 1024px) {
+  .schedule-wrap {
+    grid-template-columns: repeat(2, 1fr);
+    align-items: start;
+    gap: var(--space-4);
+  }
 }
 
 .schedule-panel {
@@ -389,7 +412,7 @@
 .schedule-table th,
 .schedule-table td {
   text-align: left;
-  padding: var(--space-3) var(--space-5);
+  padding: var(--space-2) var(--space-4);
   border-bottom: 1px solid var(--hairline);
 }
 
@@ -441,12 +464,21 @@
   padding: var(--space-2) 0;
 }
 
-.benefit-list .enso-dot {
+.benefit-list .benefit-icon {
   flex: none;
-  width: 20px;
-  height: 20px;
-  margin-top: 2px;
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  border-radius: var(--radius);
+  background: var(--accent-soft);
   color: var(--accent);
+  margin-top: 2px;
+}
+
+.benefit-list .benefit-icon svg {
+  width: 22px;
+  height: 22px;
 }
 
 .benefit-list p {
@@ -834,6 +866,7 @@
 }
 
 .methodology-content {
+  max-width: 72ch;
   display: grid;
   gap: var(--space-4);
   color: var(--ink-soft);
