@@ -2,13 +2,13 @@
 
 ## Project status
 
-Production-ready multi-page static site for Club de Deportivo Elemental Aikido Paracuellos. Built and deployed via Netlify. Spanish-language content throughout.
+Production-ready multi-page static site for Club de Deportivo Elemental Aikido Paracuellos. Built with Vite and deployed via GitHub Pages. Spanish-language content throughout.
 
 ## Commands
 
 - `pnpm dev` — Vite dev server on port 5173, auto-opens browser.
-- `pnpm build` — outputs to `/dist` (this is what Netlify publishes).
-- `pnpm lint` — ESLint (`src/**/*.js`, `netlify/functions/**/*.js`) + Stylelint (`src/css/**/*.css`).
+- `pnpm build` — outputs to `/dist` (this is what GitHub Actions publishes).
+- `pnpm lint` — ESLint (`src/**/*.js`) + Stylelint (`src/css/**/*.css`).
 - `pnpm format` — Prettier (`src/**/*.{js,css,html,json}`).
 - `pnpm test:a11y` — runs axe against `localhost:5173`; requires a separate `pnpm dev` process already running. No unit test suite exists.
 

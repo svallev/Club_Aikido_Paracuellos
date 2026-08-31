@@ -7,9 +7,9 @@
     <meta name="description" content="Política de cookies del sitio web del Club Aikido Paracuellos." />
     <meta name="robots" content="noindex, nofollow" />
     <meta name="theme-color" content="#faf7f1" />
-    <link rel="icon" type="image/png" href="/images/logo.png" />
-    <link rel="stylesheet" href="/src/css/styles.css" />
-    <script type="module" src="/src/js/main.js"></script>
+    <link rel="icon" type="image/png" href="images/logo.png" />
+    <link rel="stylesheet" href="./src/css/styles.css" />
+    <script type="module" src="./src/js/main.js"></script>
   </head>
   <body>
     <a class="skip-link" href="#main">Saltar al contenido</a>
@@ -17,19 +17,19 @@
 
     <header class="site-header">
       <div class="header-inner">
-        <a class="brand" href="/" aria-label="Aikido Paracuellos — inicio">
+        <a class="brand" href="./" aria-label="Aikido Paracuellos — inicio">
           <span data-brand></span>
           <span class="brand-name">Aikido Paracuellos<small>Club Deportivo Elemental</small></span>
         </a>
         <nav class="main-nav" aria-label="Navegación principal">
           <ul>
-            <li><a href="/">El Club</a></li>
-            <li><a href="/actividades.html">Actividades</a></li>
-            <li><a href="/cursos.html">Cursos</a></li>
-            <li><a href="/galeria.html">Galería</a></li>
+            <li><a href="./">El Club</a></li>
+            <li><a href="actividades.html">Actividades</a></li>
+            <li><a href="cursos.html">Cursos</a></li>
+            <li><a href="galeria.html">Galería</a></li>
           </ul>
         </nav>
-        <a class="btn btn--primary header-cta" href="/#contacto">
+        <a class="btn btn--primary header-cta" href="./#contacto">
           <svg class="header-cta__icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z"/><path d="M3 7l9 6 9-6"/></svg>
           <span class="header-cta__label">Contacto</span>
         </a>
@@ -45,11 +45,11 @@
       </button>
       <nav aria-label="Menú móvil">
         <ul>
-          <li><a href="/">El Club</a></li>
-          <li><a href="/actividades.html">Actividades</a></li>
-          <li><a href="/cursos.html">Cursos</a></li>
-          <li><a href="/galeria.html">Galería</a></li>
-          <li><a href="/#contacto">Contacto</a></li>
+          <li><a href="./">El Club</a></li>
+          <li><a href="actividades.html">Actividades</a></li>
+          <li><a href="cursos.html">Cursos</a></li>
+          <li><a href="galeria.html">Galería</a></li>
+          <li><a href="./#contacto">Contacto</a></li>
         </ul>
       </nav>
     </div>
@@ -85,7 +85,7 @@
             sus ajustes. Al tratarse de un sitio sin cookies propias, el bloqueo no
             afectará al funcionamiento básico del sitio.
           </p>
-          <p><a class="btn btn--ghost" href="/">Volver al inicio</a></p>
+          <p><a class="btn btn--ghost" href="./">Volver al inicio</a></p>
         </div>
       </section>
     </main>
@@ -122,17 +122,17 @@
         <div class="footer-bottom">
           <p>© <span data-year>2026</span> C.D.E. Aikido Paracuellos. Todos los derechos reservados.</p>
           <ul>
-            <li><a href="/aviso-legal.html">Aviso legal</a></li>
-            <li><a href="/privacidad.html">Privacidad</a></li>
-            <li><a href="/cookies.html">Cookies</a></li>
+            <li><a href="aviso-legal.html">Aviso legal</a></li>
+            <li><a href="privacidad.html">Privacidad</a></li>
+            <li><a href="cookies.html">Cookies</a></li>
           </ul>
         </div>
       </div>
     </footer>
 
     <script type="module">
-      import { brandMark } from '/src/js/icons.js';
-      import { initAnimations } from '/src/js/animate.js';
+      import { brandMark } from './src/js/icons.js';
+      import { initAnimations } from './src/js/animate.js';
       document.querySelector('[data-brand]').innerHTML = brandMark();
       initAnimations();
     </script>

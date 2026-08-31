@@ -20,7 +20,7 @@ export function ensoSVG(size = '100%') {
  * adyacente aporta la etiqueta accesible, por eso la imagen va con alt vacío.
  */
 export function brandMark() {
-  return `<img class="brand-mark" src="/images/logo-header.png" alt="" width="64" height="64" />`;
+  return `<img class="brand-mark" src="images/logo-header.png" alt="" width="64" height="64" />`;
 }
 
 function socialIcon(paths) {
