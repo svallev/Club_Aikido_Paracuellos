@@ -1,0 +1,80 @@
+/* ============================================================
+   utilities.css — utilidades de bajo nivel
+   ============================================================ */
+.u-stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.u-center {
+  margin-inline: auto;
+  text-align: center;
+}
+
+.u-mt-8 {
+  margin-top: var(--space-8);
+}
+
+.u-mb-8 {
+  margin-bottom: var(--space-8);
+}
+
+.u-invisible {
+  opacity: 0;
+  transform: translateY(24px);
+}
+
+/* Texto solo para lectores de pantalla (no visible, pero presente) */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.sr-only-focusable:focus,
+.sr-only-focusable:focus-visible {
+  position: static;
+  width: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+}
+
+/* Clases para animaciones de entrada (GSAP las activa) */
+.reveal {
+  will-change: transform, opacity;
+}
+
+/* Prefijo estado inicial para scroll-loader sin GSAP */
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+.text-muted {
+  color: var(--muted);
+}
+
+.text-accent {
+  color: var(--accent);
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+}

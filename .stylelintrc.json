@@ -1,0 +1,23 @@
+{
+  "extends": "stylelint-config-standard",
+  "rules": {
+    "custom-property-pattern": null,
+    "no-descending-specificity": null,
+    "import-notation": null,
+    "color-hex-length": null,
+    "color-function-notation": null,
+    "alpha-value-notation": null,
+    "custom-property-empty-line-before": null,
+    "declaration-empty-line-before": null,
+    "no-empty-source": null,
+    "selector-class-pattern": null,
+    "comment-empty-line-before": null,
+    "rule-empty-line-before": null,
+    "property-no-vendor-prefix": null,
+    "value-keyword-case": null,
+    "media-feature-range-notation": null,
+    "keyframes-name-pattern": null,
+    "at-rule-empty-line-before": null,
+    "no-descending-specificity": null
+  }
+}

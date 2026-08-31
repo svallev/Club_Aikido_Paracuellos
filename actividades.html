@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Actividades — C.D.E. Aikido Paracuellos</title>
+    <meta
+      name="description"
+      content="Actividades sociales del Club Aikido Paracuellos: prácticas, cursos, encuentros y eventos con la comunidad del dojo."
+    />
+    <meta property="og:title" content="Actividades — Aikido Paracuellos" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="/images/hero/hero.jpg" />
+    <meta name="theme-color" content="#faf7f1" />
+    <link rel="icon" type="image/png" href="/images/logo.png" />
+    <link rel="stylesheet" href="/src/css/styles.css" />
+    <script type="module" src="/src/js/main.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Saltar al contenido</a>
+    <div class="grain" aria-hidden="true"></div>
+
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href="/" aria-label="Aikido Paracuellos — inicio">
+          <span data-brand></span>
+          <span class="brand-name">Aikido Paracuellos<small>Club Deportivo Elemental</small></span>
+        </a>
+        <nav class="main-nav" aria-label="Navegación principal">
+          <ul>
+            <li><a href="/">Inicio</a></li>
+            <li><a href="/actividades.html" aria-current="page">Actividades</a></li>
+            <li><a href="/cursos.html">Cursos</a></li>
+            <li><a href="/galeria.html">Galería</a></li>
+          </ul>
+        </nav>
+        <a class="btn btn--primary header-cta" href="#contacto">Contacto</a>
+        <button class="nav-toggle" aria-expanded="false" aria-controls="mobile-menu" aria-label="Abrir menú">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </header>
+
+    <div class="mobile-menu" id="mobile-menu" role="dialog" aria-modal="true" aria-label="Menú">
+      <button class="mobile-menu-close" aria-label="Cerrar menú">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+      <nav aria-label="Menú móvil">
+        <ul>
+          <li><a href="/">Inicio</a></li>
+          <li><a href="/actividades.html" aria-current="page">Actividades</a></li>
+          <li><a href="/cursos.html">Cursos</a></li>
+          <li><a href="/galeria.html">Galería</a></li>
+          <li><a href="/#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <main id="main">
+      <section class="page-hero" aria-labelledby="page-title">
+        <div class="container">
+          <p class="section-kicker reveal">Comunidad</p>
+          <h1 id="page-title" class="reveal">Actividades</h1>
+          <p class="reveal">
+            Además de las clases regulares, organizamos actividades en colaboración
+            con otros dojos para promover y difundir el Aikido.
+          </p>
+        </div>
+      </section>
+
+      <section class="section" aria-label="Lista de actividades">
+        <div class="container">
+          <div class="event-list" id="actividades-list" aria-live="polite">
+            <div class="state-box"><p>Cargando actividades…</p></div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer" id="contacto">
+      <div class="container">
+        <div class="footer-top">
+          <div>
+            <h3>El club</h3>
+            <address>
+              Club Deportivo Elemental Aikido Paracuellos<br />
+              Polideportivo Municipal de Paracuellos de Jarama<br />
+              Calle Extremadura, s/n<br />
+              28860 Paracuellos de Jarama (Madrid)
+            </address>
+            <p class="u-mt-8 font-mono" style="color: rgba(250,247,241,.6)">
+              40.504060, -3.525578 · N 40º30'14" / W 003º31'32"
+            </p>
+          </div>
+          <div>
+            <h3>Contacto</h3>
+            <p><a class="footer-link" href="mailto:aikido@clubaikidoparacuellos.es">aikido@clubaikidoparacuellos.es</a></p>
+            <p><a class="footer-link" href="https://www.clubaikidoparacuellos.com">www.clubaikidoparacuellos.com</a></p>
+          </div>
+          <div>
+            <h3>Síguenos</h3>
+            <div class="socials">
+              <a href="https://www.instagram.com/aikidoparacuellos" target="_blank" rel="noopener" data-social="instagram" aria-label="Instagram"></a>
+              <a href="https://www.youtube.com/@aikidoparacuellos" target="_blank" rel="noopener" data-social="youtube" aria-label="YouTube"></a>
+              <a href="https://www.facebook.com/aikidoparacuellos" target="_blank" rel="noopener" data-social="facebook" aria-label="Facebook"></a>
+              <a href="https://www.tiktok.com/search?q=aikido%20paracuellos" target="_blank" rel="noopener" data-social="tiktok" aria-label="TikTok"></a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>© <span data-year>2026</span> C.D.E. Aikido Paracuellos. Todos los derechos reservados.</p>
+          <ul>
+            <li><a href="/aviso-legal.html">Aviso legal</a></li>
+            <li><a href="/privacidad.html">Privacidad</a></li>
+            <li><a href="/cookies.html">Cookies</a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+
+    <script type="module">
+      import { brandMark } from '/src/js/icons.js';
+      import { initListPage } from '/src/js/listpage.js';
+      import { initAnimations } from '/src/js/animate.js';
+      document.querySelector('[data-brand]').innerHTML = brandMark();
+      initListPage({
+        listEl: '#actividades-list',
+        url: '/data/actividades.json',
+        emptyCopy: 'Aún no hay actividades programadas.',
+      });
+      initAnimations();
+    </script>
+  </body>
+</html>

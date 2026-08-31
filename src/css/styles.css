@@ -1,0 +1,10 @@
+/* ============================================================
+   styles.css — entrada principal de estilos.
+   El orden importa: tokens → fonts → reset → layout → components → utils.
+   ============================================================ */
+@import './tokens.css';
+@import './fonts.css';
+@import './reset.css';
+@import './layout.css';
+@import './components.css';
+@import './utilities.css';

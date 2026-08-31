@@ -1,0 +1,28 @@
+{
+  "name": "clubaikidoparacuellos-web",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Web del C.D.E. Aikido Paracuellos — sitio moderno e inspirador",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint": "eslint src/**/*.js && stylelint 'src/css/**/*.css'",
+    "format": "prettier --write \"src/**/*.{js,css,html,json}\"",
+    "test:a11y": "axe localhost:5173 --exit"
+  },
+  "dependencies": {
+    "@fontsource-variable/outfit": "^5.3.0",
+    "@fontsource/ibm-plex-sans": "^5.3.0",
+    "@fontsource/jetbrains-mono": "^5.3.0",
+    "gsap": "^3.12.5"
+  },
+  "devDependencies": {
+    "eslint": "^9.11.1",
+    "prettier": "^3.3.3",
+    "stylelint": "^16.9.0",
+    "stylelint-config-standard": "^36.0.1",
+    "vite": "^5.4.8"
+  }
+}

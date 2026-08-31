@@ -1,0 +1,45 @@
+{
+  "source": "local-fallback",
+  "items": [
+    {
+      "id": "local-1",
+      "media_url": "/images/gallery/g1.jpg",
+      "caption": "Práctica de técnicas en el tatami."
+    },
+    {
+      "id": "local-2",
+      "media_url": "/images/gallery/g2.jpg",
+      "caption": "Entrenamiento en pareja."
+    },
+    {
+      "id": "local-3",
+      "media_url": "/images/gallery/g3.jpg",
+      "caption": "Clase de niños."
+    },
+    {
+      "id": "local-4",
+      "media_url": "/images/gallery/g4.jpg",
+      "caption": "Entrenamiento en el Polideportivo Municipal."
+    },
+    {
+      "id": "local-5",
+      "media_url": "/images/gallery/g5.jpg",
+      "caption": "Trabajo técnico y desplazamientos."
+    },
+    {
+      "id": "local-6",
+      "media_url": "/images/la-practica/modelo02.jpg",
+      "caption": "La práctica del aikido."
+    },
+    {
+      "id": "local-7",
+      "media_url": "/images/la-practica/modelo03.jpg",
+      "caption": "Técnicas y control corporal."
+    },
+    {
+      "id": "local-8",
+      "media_url": "/images/la-practica/modelo04.jpg",
+      "caption": "Encuentro y comunidad."
+    }
+  ]
+}

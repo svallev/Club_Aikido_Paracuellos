@@ -1,0 +1,11 @@
+/* ============================================================
+   fonts.css — fuentes autohospedadas (WOFF2) vía @fontsource.
+   Solo subconjunto latin (cubre español: ñ y acentos).
+   Sin peticiones externas. Importar antes que reset/layout.
+   ============================================================ */
+@import '@fontsource-variable/outfit/wght.css';
+@import '@fontsource/ibm-plex-sans/latin-400.css';
+@import '@fontsource/ibm-plex-sans/latin-500.css';
+@import '@fontsource/ibm-plex-sans/latin-600.css';
+@import '@fontsource/jetbrains-mono/latin-400.css';
+@import '@fontsource/jetbrains-mono/latin-500.css';
