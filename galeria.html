@@ -10,11 +10,11 @@
     />
     <meta property="og:title" content="Galería — Aikido Paracuellos" />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="images/hero/hero.jpg" />
+    <meta property="og:image" content="/images/hero/hero.jpg" />
     <meta name="theme-color" content="#faf7f1" />
-    <link rel="icon" type="image/png" href="images/logo.png" />
-    <link rel="stylesheet" href="./src/css/styles.css" />
-    <script type="module" src="./src/js/main.js"></script>
+    <link rel="icon" type="image/png" href="/images/logo.png" />
+    <link rel="stylesheet" href="/src/css/styles.css" />
+    <script type="module" src="/src/js/main.js"></script>
   </head>
   <body>
     <a class="skip-link" href="#main">Saltar al contenido</a>
@@ -22,16 +22,16 @@
 
     <header class="site-header">
       <div class="header-inner">
-        <a class="brand" href="./" aria-label="Aikido Paracuellos — inicio">
+        <a class="brand" href="/" aria-label="Aikido Paracuellos — inicio">
           <span data-brand></span>
           <span class="brand-name">Aikido Paracuellos<small>Club Deportivo Elemental</small></span>
         </a>
         <nav class="main-nav" aria-label="Navegación principal">
           <ul>
-            <li><a href="./">El Club</a></li>
-            <li><a href="actividades.html">Actividades</a></li>
-            <li><a href="cursos.html">Cursos</a></li>
-            <li><a href="galeria.html" aria-current="page">Galería</a></li>
+            <li><a href="/">El Club</a></li>
+            <li><a href="/actividades.html">Actividades</a></li>
+            <li><a href="/cursos.html">Cursos</a></li>
+            <li><a href="/galeria.html" aria-current="page">Galería</a></li>
           </ul>
         </nav>
         <a class="btn btn--primary header-cta" href="#contacto">
@@ -50,11 +50,11 @@
       </button>
       <nav aria-label="Menú móvil">
         <ul>
-          <li><a href="./">El Club</a></li>
-          <li><a href="actividades.html">Actividades</a></li>
-          <li><a href="cursos.html">Cursos</a></li>
-          <li><a href="galeria.html" aria-current="page">Galería</a></li>
-          <li><a href="./#contacto">Contacto</a></li>
+          <li><a href="/">El Club</a></li>
+          <li><a href="/actividades.html">Actividades</a></li>
+          <li><a href="/cursos.html">Cursos</a></li>
+          <li><a href="/galeria.html" aria-current="page">Galería</a></li>
+          <li><a href="/#contacto">Contacto</a></li>
         </ul>
       </nav>
     </div>
@@ -118,18 +118,18 @@
         <div class="footer-bottom">
           <p>© <span data-year>2026</span> C.D.E. Aikido Paracuellos. Todos los derechos reservados.</p>
           <ul>
-            <li><a href="aviso-legal.html">Aviso legal</a></li>
-            <li><a href="privacidad.html">Privacidad</a></li>
-            <li><a href="cookies.html">Cookies</a></li>
+            <li><a href="/aviso-legal.html">Aviso legal</a></li>
+            <li><a href="/privacidad.html">Privacidad</a></li>
+            <li><a href="/cookies.html">Cookies</a></li>
           </ul>
         </div>
       </div>
     </footer>
 
     <script type="module">
-      import { brandMark } from './src/js/icons.js';
-      import { initAnimations } from './src/js/animate.js';
-      import { initGallery } from './src/js/gallery.js';
+      import { brandMark } from '/src/js/icons.js';
+      import { initAnimations } from '/src/js/animate.js';
+      import { initGallery } from '/src/js/gallery.js';
       document.querySelector('[data-brand]').innerHTML = brandMark();
       initGallery();
       initAnimations();

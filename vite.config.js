@@ -2,9 +2,6 @@ import { resolve } from 'node:path';
 import { defineConfig } from 'vite';
 
 export default defineConfig({
-  // Base relativa: permite servir el build tanto en la raíz (dev / Netlify)
-  // como bajo un subdirectorio de GitHub Pages (ej. /Club_Aikido_Paracuellos/).
-  base: './',
   build: {
     rollupOptions: {
       input: {

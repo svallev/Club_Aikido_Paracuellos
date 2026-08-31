@@ -2,13 +2,13 @@
 
 ## Project status
 
-Production-ready multi-page static site for Club de Deportivo Elemental Aikido Paracuellos. Built with Vite and deployed via GitHub Pages. Spanish-language content throughout.
+Production-ready multi-page static site for Club de Deportivo Elemental Aikido Paracuellos. Built and deployed via Netlify. Spanish-language content throughout.
 
 ## Commands
 
 - `pnpm dev` — Vite dev server on port 5173, auto-opens browser.
-- `pnpm build` — outputs to `/dist` (this is what GitHub Actions publishes).
-- `pnpm lint` — ESLint (`src/**/*.js`) + Stylelint (`src/css/**/*.css`).
+- `pnpm build` — outputs to `/dist` (this is what Netlify publishes).
+- `pnpm lint` — ESLint (`src/**/*.js`, `netlify/functions/**/*.js`) + Stylelint (`src/css/**/*.css`).
 - `pnpm format` — Prettier (`src/**/*.{js,css,html,json}`).
 - `pnpm test:a11y` — runs axe against `localhost:5173`; requires a separate `pnpm dev` process already running. No unit test suite exists.
 
@@ -20,17 +20,18 @@ Vanilla Vite (no framework), plain HTML/CSS/JS ES modules. Multi-page app — ea
 
 - `index.html` — home with anchored sections (Hero → Qué es el Aikido → Horarios → La Práctica → Metodología → Principios → Beneficios → CTA → Footer).
 - `actividades.html`, `cursos.html` — chronological lists rendered client-side from JSON by `src/js/listpage.js`.
-- `galeria.html` — grid + lightbox via `src/js/gallery.js`, populated from local `data/gallery.json` (no serverless backend).
+- `galeria.html` — Instagram grid + lightbox via `src/js/gallery.js`.
+- `netlify/functions/instagram.js` — serverless proxy for the Instagram Basic Display API.
 
 ### CSS (single entry, order matters)
 
-Every page loads `./src/css/styles.css` (relative), which `@import`s in this exact order: `tokens → fonts → reset → layout → components → utilities`. Add rules to the matching file; do not create new top-level `@import`s.
+Every page loads `/src/css/styles.css`, which `@import`s in this exact order: `tokens → fonts → reset → layout → components → utilities`. Add rules to the matching file; do not create new top-level `@import`s.
 
 ### Data loading
 
-JSON is fetched at runtime with **relative paths** (`data/*.json`), served from **`public/data/`** (Vite copies `public/` into `dist/`). There is **no `src/data/` directory**. Do not move these files — the runtime paths `data/actividades.json`, `data/cursos.json`, `data/gallery.json` depend on `public/`.
+JSON is fetched at runtime from `/data/*.json`, which lives in **`public/data/`** (Vite serves `public/` at root). There is **no `src/data/` directory**. Do not move these files — the runtime paths `/data/actividades.json`, `/data/cursos.json`, `/data/gallery.json` depend on `public/`.
 
-`gallery.js` loads directly from `data/gallery.json` and rewrites each `media_url` to a relative path (strips the leading `/`). No Instagram/Netlify function is used.
+`gallery.js` first tries `/.netlify/functions/instagram`, then falls back to `/data/gallery.json`.
 
 ## Conventions
 
@@ -44,13 +45,11 @@ JSON is fetched at runtime with **relative paths** (`data/*.json`), served from 
 - **Spanish content**: all user-facing text is Spanish.
 - **Mobile menu**: HTML uses `.nav-toggle` + `.mobile-menu`; `main.js` (via `initChrome`) wires it. Keep these class names stable.
 
-## GitHub Pages / deploy
+## Netlify / deploy
 
-- Repo: `svallev/Club_Aikido_Paracuellos` → site at `https://svallev.github.io/Club_Aikido_Paracuellos/`.
-- **Relative paths everywhere**: `vite.config.js` sets `base: './'`, and all HTML/JS use relative URLs (`./`, `actividades.html`, `images/...`, `data/...`). This lets the same build work locally (`pnpm dev`), in the Pages subdirectory, and at any root. **Do not reintroduce root-absolute paths** (`/images/...`, `href="/"`, `/data/...`) — they break the subdirectory deployment. When referencing project assets in HTML/JS, use relative paths.
-- `.github/workflows/deploy.yml` builds (`pnpm build`) and publishes `dist/` via `actions/deploy-pages` on push to `main` or manual dispatch. GitHub Pages source must be set to "GitHub Actions".
-- `public/.nojekyll` opts the site out of Jekyll processing.
-- No Netlify config/function remains (`netlify.toml` and `netlify/functions/` were removed). The gallery uses only the local `data/gallery.json` fallback.
+- `netlify.toml`: build runs `pnpm build`, publishes `dist`. Node 20. Sets header/cache rules.
+- Instagram function requires env vars configured in Netlify: `INSTAGRAM_APP_ID`, `INSTAGRAM_APP_SECRET`, `INSTAGRAM_TOKEN`. It falls back to `{ items: [] }` when the token is missing, which makes the frontend use the local gallery fallback.
+- No CI workflow exists.
 
 ## Gotchas
 

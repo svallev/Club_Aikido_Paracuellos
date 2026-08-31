@@ -86,15 +86,13 @@ function renderGrid(data) {
   if (!grid) return;
 
   grid.innerHTML = data
-    .map((item) => {
-      // Rutas relativas para funcionar bajo cualquier raíz (GitHub Pages, etc.).
-      const src = item.media_url.replace(/^\//, '');
-      return `
-        <figure class="media gallery-item" data-src="${src}" data-alt="${item.caption || ''}" data-caption="${item.caption || ''}">
-          <img src="${src}" alt="${item.caption || 'Fotografía del club'}" loading="lazy" decoding="async">
-        </figure>
-      `;
-    })
+    .map(
+      (item) => `
+      <figure class="media gallery-item" data-src="${item.media_url}" data-alt="${item.caption || ''}" data-caption="${item.caption || ''}">
+        <img src="${item.media_url}" alt="${item.caption || 'Fotografía del club'}" loading="lazy" decoding="async">
+      </figure>
+    `
+    )
     .join('');
 
   buildLightbox(grid);
@@ -105,18 +103,24 @@ export async function initGallery() {
   if (!grid) return;
 
   try {
-    // Fuente local: la galería se sirve desde data/gallery.json (ruta relativa
-    // para funcionar bajo cualquier raíz, incl. GitHub Pages).
-    const res = await fetch('data/gallery.json');
-    if (!res.ok) throw new Error('no fallback');
+    const res = await fetch('/.netlify/functions/instagram');
+    if (!res.ok) throw new Error('bad status');
     const data = await res.json();
     renderGrid(data.items || []);
   } catch {
-    grid.innerHTML = `
-      <div class="state-box">
-        <h3>La galería aún no está disponible</h3>
-        <p>Añade imágenes a «data/gallery.json».</p>
-      </div>
-    `;
+    // Fallback local si la función aún no está disponible en local.
+    try {
+      const res = await fetch('/data/gallery.json');
+      if (!res.ok) throw new Error('no fallback');
+      const data = await res.json();
+      renderGrid(data.items || []);
+    } catch {
+      grid.innerHTML = `
+        <div class="state-box">
+          <h3>La galería aún no está disponible</h3>
+          <p>Conecta la función de Instagram o añade imágenes a «/data/gallery.json».</p>
+        </div>
+      `;
+    }
   }
 }
