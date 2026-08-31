@@ -139,6 +139,16 @@
   display: none;
 }
 
+/* Icono y etiqueta del CTA: por defecto (escritorio) solo texto.
+   En móvil el icono sustituye al texto. */
+.header-cta__icon {
+  display: none;
+}
+
+.header-cta__label {
+  display: inline;
+}
+
 /* Botón hamburguesa */
 .nav-toggle {
   display: inline-flex;
@@ -395,6 +405,51 @@
 }
 
 /* ---- Breakpoints ---- */
+/* Móvil: el CTA de contacto se muestra como botón cuadrado solo-icono,
+   sin texto, alineado a la derecha junto al botón de menú. */
+@media (max-width: 767px) {
+  .site-header {
+    padding: var(--space-1) var(--space-1);
+  }
+
+  .header-inner {
+    gap: var(--space-1);
+    padding: var(--space-1) var(--space-1);
+  }
+
+  .btn.header-cta {
+    display: inline-flex;
+    margin-left: auto;
+    padding: 0;
+    width: 44px;
+    height: 44px;
+    flex: none;
+  }
+
+  .header-cta__icon {
+    display: block;
+  }
+
+  .header-cta__label {
+    display: none;
+  }
+}
+
+/* Tablet: el CTA mantiene el texto con padding compacto, alineado a la derecha. */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .header-inner {
+    gap: var(--space-1);
+  }
+
+  .btn.header-cta {
+    display: inline-flex;
+    align-items: center;
+    margin-left: auto;
+    padding: 0 12px;
+    height: 44px;
+  }
+}
+
 @media (min-width: 768px) {
   .footer-top {
     grid-template-columns: 1.5fr 1fr 1fr;
@@ -406,7 +461,7 @@
     display: block;
   }
 
-  .header-cta {
+  .btn.header-cta {
     display: inline-flex;
   }
 
