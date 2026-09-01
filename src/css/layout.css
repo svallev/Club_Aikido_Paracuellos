@@ -75,7 +75,7 @@
   width: 44px;
   height: 44px;
   flex: none;
-  object-fit: cover;
+  object-fit: contain;
   border-radius: var(--radius);
   background: var(--surface);
   box-shadow: 0 4px 16px -12px rgba(var(--shadow-color), 0.6);

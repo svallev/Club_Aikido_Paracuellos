@@ -14,15 +14,6 @@ export function ensoSVG(size = '100%') {
   </svg>`;
 }
 
-/**
- * Marca / logotipo del club.
- * Imagen del escudo en public/images/logo-header.png. El texto «Aikido Paracuellos»
- * adyacente aporta la etiqueta accesible, por eso la imagen va con alt vacío.
- */
-export function brandMark() {
-  return `<img class="brand-mark" src="/images/logo-header.png" alt="" width="64" height="64" />`;
-}
-
 function socialIcon(paths) {
   return `<svg viewBox="0 0 24 24" width="22" height="22" fill="${STROKE}" aria-hidden="true" focusable="false">${paths}</svg>`;
 }
