@@ -7,7 +7,7 @@
     "instructor2": "Rubén Menchero, 5º Dan RFEJYDA, 4º Dan Aikikai - Shidoin",
     "date": "2026-04-25",
     "upcoming": true,
-    "image": "/images/cursos/godo-geiko-2026.jpg"
+    "image": "/images/cursos/godo-geiko-2026.webp"
   },
   {
     "id": "naoki-kojima-2025",
@@ -17,7 +17,7 @@
     "schedule": "Sábado de 10:00 a 13:00 h y de 16:00 a 19:00 h",
     "date": "2025-11-15",
     "upcoming": false,
-    "image": "/images/cursos/naoki-kojima-2025.jpeg"
+    "image": "/images/cursos/naoki-kojima-2025.webp"
   },
   {
     "id": "godo-geiko-2025-10",
@@ -27,7 +27,7 @@
     "instructor2": "Manuel Jiménez, 6º Dan RFEJYDA, 4º Dan Aikikai Shidoin",
     "date": "2025-10-04",
     "upcoming": false,
-    "image": "/images/cursos/godo-geiko-2025-10.jpeg"
+    "image": "/images/cursos/godo-geiko-2025-10.webp"
   },
   {
     "id": "malcolm-tiki-2025",
@@ -37,7 +37,7 @@
     "schedule": "Sábado a las 10:00 h; finalización el domingo a las 13:30 h",
     "date": "2025-05-24",
     "upcoming": false,
-    "image": "/images/cursos/malcolm-tiki-2025.jpeg"
+    "image": "/images/cursos/malcolm-tiki-2025.webp"
   },
   {
     "id": "benedetti-2025",
@@ -47,7 +47,7 @@
     "schedule": "Sábado de 10:00 a 14:00 h; domingo de 10:00 a 14:00 h",
     "date": "2025-04-05",
     "upcoming": false,
-    "image": "/images/cursos/benedetti-2025.jpg"
+    "image": "/images/cursos/benedetti-2025.webp"
   },
   {
     "id": "godo-geiko-2025-01",
@@ -57,7 +57,7 @@
     "instructor2": "Rubén Menchero, 5º Dan RFEJYDA, 4º Dan Aikikai Shidoin",
     "date": "2025-01-18",
     "upcoming": false,
-    "image": "/images/cursos/godo-geiko-2025-01.jpg"
+    "image": "/images/cursos/godo-geiko-2025-01.webp"
   },
   {
     "id": "rafa-tejero-2024",
@@ -67,7 +67,7 @@
     "instructor2": "José Gómez, Shidoin 4º Dan Aikikai, 6º Dan AEAC",
     "date": "2024-06-21",
     "upcoming": false,
-    "image": "/images/cursos/rafa-tejero-2024.jpg"
+    "image": "/images/cursos/rafa-tejero-2024.webp"
   },
   {
     "id": "malcolm-tiki-2024",
@@ -76,7 +76,7 @@
     "instructor": "Malcolm Tiki, Shewan Shihan 7º Dan Aikikai",
     "date": "2024-06-08",
     "upcoming": false,
-    "image": "/images/cursos/malcolm-tiki-2024.jpg"
+    "image": "/images/cursos/malcolm-tiki-2024.webp"
   },
   {
     "id": "takemusu-2024",
@@ -85,7 +85,7 @@
     "instructor": "Matthieu Jeandel, 6º Dan ITAF",
     "date": "2024-03-22",
     "upcoming": false,
-    "image": "/images/cursos/takemusu-2024.jpg"
+    "image": "/images/cursos/takemusu-2024.webp"
   },
   {
     "id": "one-relay-2024",
@@ -94,6 +94,6 @@
     "instructor": "José Gómez, 6º Dan · Jacinto Camacho, 6º Dan · Pablo Durán, 5º Dan · Antonio Quero, 6º Dan",
     "date": "2024-02-18",
     "upcoming": false,
-    "image": "/images/cursos/one-relay-2024.jpg"
+    "image": "/images/cursos/one-relay-2024.webp"
   }
 ]

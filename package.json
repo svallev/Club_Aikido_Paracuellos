@@ -10,6 +10,7 @@
     "preview": "vite preview",
     "lint": "eslint src/**/*.js && stylelint 'src/css/**/*.css'",
     "format": "prettier --write \"src/**/*.{js,css,html,json}\"",
+    "images:optimize": "node scripts/optimize-images.mjs",
     "test:a11y": "axe localhost:5173 --exit"
   },
   "dependencies": {
@@ -22,6 +23,7 @@
   "devDependencies": {
     "eslint": "^9.11.1",
     "prettier": "^3.3.3",
+    "sharp": "^0.35.4",
     "stylelint": "^16.9.0",
     "stylelint-config-standard": "^36.0.1",
     "vite": "^5.4.8"
