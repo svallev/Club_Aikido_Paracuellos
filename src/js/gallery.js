@@ -106,7 +106,9 @@ export async function initGallery() {
     const res = await fetch('/.netlify/functions/instagram');
     if (!res.ok) throw new Error('bad status');
     const data = await res.json();
-    renderGrid(data.items || []);
+    const items = data.items || [];
+    if (items.length === 0) throw new Error('empty items');
+    renderGrid(items);
   } catch {
     // Fallback local si la función aún no está disponible en local.
     try {
