@@ -828,6 +828,82 @@
   }
 }
 
+/* ---- Tarjeta de curso (distinta de actividades) ----
+   Imagen de ancho destacado (200px en escritorio) a la izquierda,
+   contenido y fecha a la derecha, todo alineado arriba. El clic en toda
+   la tarjeta abre el lightbox con la imagen del curso. */
+.event-card--curso {
+  gap: var(--space-3);
+  padding: var(--space-4);
+  align-items: start;
+  cursor: zoom-in;
+}
+
+.event-card--curso .event-media {
+  border-radius: var(--radius);
+  cursor: zoom-in;
+}
+
+.event-card--curso .event-date {
+  gap: var(--space-1);
+  padding: var(--space-1) var(--space-2);
+}
+
+.event-card--curso .event-date .day {
+  font-size: var(--text-lg);
+}
+
+.event-card--curso .event-date .month {
+  font-size: var(--text-2xs);
+}
+
+@media (min-width: 768px) {
+  /* Foto a la izquierda (200px), contenido + fecha a la derecha */
+  .event-card--curso {
+    grid-template-columns: 200px 1fr;
+    gap: var(--space-4);
+  }
+
+  .event-card--curso .event-media {
+    width: 200px;
+    height: auto;
+    aspect-ratio: auto;
+    align-self: start;
+  }
+
+  .event-card--curso .event-media img {
+    height: auto;
+  }
+
+  .event-card--curso .event-main {
+    grid-template-columns: 1fr auto;
+    gap: var(--space-4);
+    align-items: start;
+  }
+
+  .event-card--curso .event-card__body {
+    order: 1;
+  }
+
+  /* Fecha como etiqueta compacta a la derecha, en horizontal */
+  .event-card--curso .event-date {
+    order: 2;
+    flex-direction: row;
+    min-width: 0;
+    justify-self: end;
+    padding: var(--space-1) var(--space-2);
+  }
+
+  .event-card--curso .event-date .day {
+    font-size: var(--text-lg);
+  }
+
+  .event-card--curso .event-date .month {
+    margin-top: 0;
+    align-self: center;
+  }
+}
+
 /* ---- Galería ---- */
 .gallery-grid {
   display: grid;
