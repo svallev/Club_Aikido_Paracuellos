@@ -603,12 +603,22 @@
   background: var(--surface);
   border: 1px solid var(--hairline);
   border-radius: var(--radius);
-  transition: border-color var(--dur) var(--ease-out), transform var(--dur) var(--ease-out);
+  transition: border-color var(--dur) var(--ease-out), transform var(--dur) var(--ease-out),
+    box-shadow var(--dur) var(--ease-out);
 }
 
 .event-card:hover {
   border-color: var(--hairline-strong);
-  transform: translateX(4px);
+  transform: scale(1.02);
+  box-shadow: var(--shadow-card);
+}
+
+/* Contenedor interno con fecha + cuerpo (aplica a ambas variantes) */
+.event-main {
+  display: grid;
+  gap: var(--space-3);
+  grid-template-columns: 1fr;
+  align-items: center;
 }
 
 .event-date {
@@ -633,16 +643,25 @@
   color: var(--ink);
 }
 
-.event-date .month {
+.event-date .month,
+.event-date .year {
   font-family: var(--font-mono);
   font-size: var(--text-xs);
   text-transform: uppercase;
   letter-spacing: var(--tracking-wide);
   color: var(--muted);
-  margin-top: 0;
+}
+
+.event-date .year {
+  display: block;
+  font-size: var(--text-2xs);
 }
 
 .event-card--upcoming {
+  border-color: var(--accent);
+}
+
+.event-card--upcoming:hover {
   border-color: var(--accent);
 }
 
@@ -651,7 +670,8 @@
 }
 
 .event-card--upcoming .event-date .day,
-.event-card--upcoming .event-date .month {
+.event-card--upcoming .event-date .month,
+.event-card--upcoming .event-date .year {
   color: var(--accent-ink);
 }
 
@@ -691,10 +711,59 @@
   font-weight: 600;
 }
 
+/* ---- Tarjeta con foto (Actividades) ----
+   Eventos secundarios: formato compacto, con poco padding.
+   Todos los elementos alineados arriba. */
+.event-card--media {
+  gap: var(--space-2);
+  padding: var(--space-1);
+  align-items: start;
+}
+
+.event-card--media .event-main {
+  gap: var(--space-2);
+}
+
+.event-card--media .event-media {
+  border-radius: 8px;
+}
+
+.event-card--media .event-date {
+  gap: var(--space-1);
+  padding: var(--space-1) var(--space-2);
+}
+
+.event-card--media .event-date .day {
+  font-size: var(--text-lg);
+}
+
+.event-card--media .event-date .month {
+  font-size: var(--text-2xs);
+}
+
+.event-card--media .event-card__title {
+  font-size: var(--text-base);
+}
+
+.event-media {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--paper-deep);
+  box-shadow: inset 0 0 0 1px var(--hairline);
+}
+
+.event-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
 @media (min-width: 768px) {
-  .event-card {
+  .event-main {
     grid-template-columns: auto 1fr;
-    align-items: center;
   }
 
   /* En escritorio, la fecha vuelve a ser un bloque vertical destacado */
@@ -710,6 +779,52 @@
 
   .event-date .month {
     margin-top: 4px;
+  }
+
+  /* Tarjeta con foto: foto a un lado y contenido al otro, todo arriba */
+  .event-card--media {
+    grid-template-columns: 120px 1fr;
+    align-items: start;
+  }
+
+  .event-media {
+    width: 120px;
+    height: auto;
+    aspect-ratio: auto;
+    align-self: start;
+  }
+
+  .event-media img {
+    height: auto;
+  }
+
+  /* Cuerpo a la izquierda (junto a la imagen) y fecha a la derecha */
+  .event-card--media .event-main {
+    grid-template-columns: 1fr auto;
+    align-items: start;
+    gap: var(--space-3);
+  }
+
+  .event-card--media .event-card__body {
+    order: 1;
+  }
+
+  /* Fecha como etiqueta a la derecha, en horizontal */
+  .event-card--media .event-date {
+    order: 2;
+    flex-direction: row;
+    min-width: 0;
+    justify-self: end;
+    padding: var(--space-1) var(--space-2);
+  }
+
+  .event-card--media .event-date .day {
+    font-size: var(--text-xl);
+  }
+
+  .event-card--media .event-date .month {
+    margin-top: 0;
+    align-self: center;
   }
 }
 

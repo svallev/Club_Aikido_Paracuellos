@@ -2,6 +2,7 @@
   {
     "id": "yoga-2026",
     "title": "Clase de Yoga",
+    "image": "/images/actividades/yoga.jpg",
     "club": "Club Aikido Paracuellos",
     "instructor": "Sara Rodríguez Prieto",
     "schedule": "Sábado de 11:30 a 13:00 h",
@@ -11,6 +12,7 @@
   {
     "id": "boxeo-2025-02",
     "title": "Práctica Boxeo",
+    "image": "/images/actividades/boxeo.jpg",
     "club": "Club Aikido Paracuellos",
     "instructor": "José Gómez, Shidoin 4º Dan Aikikai, 6º Dan AEAC",
     "schedule": "Sábado a las 10:00 h",
@@ -20,6 +22,7 @@
   {
     "id": "defensa-2025-02",
     "title": "Curso de Defensa Personal",
+    "image": "/images/actividades/defensa-personal.jpg",
     "club": "Club Aikido Paracuellos",
     "instructor": "Guillermo Valero, 3º Dan, 1º Dan defensa personal",
     "schedule": "Sábado de 10:00 a 14:00 h",
@@ -29,6 +32,7 @@
   {
     "id": "defensa-2024-10",
     "title": "Curso de Defensa Personal",
+    "image": "/images/actividades/defensa-personal.jpg",
     "club": "Club Aikido Paracuellos",
     "instructor": "Guillermo Valero, 3º Dan, 1º Dan defensa personal",
     "schedule": "Sábado de 10:00 a 14:00 h",
@@ -38,6 +42,7 @@
   {
     "id": "defensa-2024-07",
     "title": "Curso de Defensa Personal",
+    "image": "/images/actividades/defensa-personal.jpg",
     "club": "Club Aikido Paracuellos",
     "instructor": "Guillermo Valero, 3º Dan, 1º Dan defensa personal",
     "schedule": "Sábado de 10:00 a 14:00 h",
@@ -47,6 +52,7 @@
   {
     "id": "defensa-2023-11",
     "title": "Curso de Defensa Personal",
+    "image": "/images/actividades/defensa-personal.jpg",
     "club": "Club Aikido Paracuellos",
     "instructor": "Guillermo Valero, 3º Dan, 1º Dan defensa personal",
     "schedule": "Sábado de 10:00 a 14:00 h",
@@ -56,6 +62,7 @@
   {
     "id": "boxeo-2023-11",
     "title": "Práctica Boxeo",
+    "image": "/images/actividades/boxeo.jpg",
     "club": "Club Aikido Paracuellos",
     "instructor": "José Gómez, Shidoin 4º Dan Aikikai, 6º Dan AEAC",
     "schedule": "Sábado a las 10:00 h",
@@ -65,6 +72,7 @@
   {
     "id": "aire-libre-2023",
     "title": "Aikido al Aire Libre",
+    "image": "/images/actividades/aire-libre.jpg",
     "club": "Club Aikido Paracuellos",
     "instructor": "",
     "schedule": "Encuentro de Aikido al aire libre",
@@ -74,6 +82,7 @@
   {
     "id": "boxeo-2023-06",
     "title": "Práctica Boxeo",
+    "image": "/images/actividades/boxeo.jpg",
     "club": "Club Aikido Paracuellos",
     "instructor": "José Gómez, Shidoin 4º Dan Aikikai, 6º Dan AEAC",
     "schedule": "Sábado a las 10:00 h; finalización el domingo a las 13:30 h",
@@ -83,6 +92,7 @@
   {
     "id": "reunion-2023",
     "title": "Reunión Social del Club",
+    "image": "/images/actividades/reunion-club.jpg",
     "club": "Club Aikido Paracuellos",
     "instructor": "",
     "schedule": "Reunión social del club con amigos y familias",
@@ -92,6 +102,7 @@
   {
     "id": "primeros-auxilios-2017",
     "title": "Curso de Primeros Auxilios",
+    "image": "/images/actividades/primeros-auxilios.jpg",
     "club": "Club Aikido Paracuellos",
     "instructor": "",
     "schedule": "Curso de primeros auxilios en colaboración con SUMA 112",
