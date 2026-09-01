@@ -154,10 +154,16 @@
   gap: var(--space-3);
 }
 
+/* En móvil los botones del hero son más compactos */
+.hero__cta .btn {
+  padding: var(--space-2) var(--space-2);
+}
+
 .hero__affil {
   margin-top: var(--space-10);
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: flex-start;
   row-gap: var(--space-2);
   font-family: var(--font-mono);
   font-size: var(--text-xs);
@@ -165,18 +171,25 @@
   color: var(--muted);
 }
 
-.hero__affil span + span {
-  position: relative;
-  padding-left: var(--space-4);
-  margin-left: var(--space-4);
-  border-left: 1px solid var(--hairline-strong);
-}
+/* En tablet y móvil los spans se muestran como listado (uno debajo de otro,
+   sin separador). En escritorio vuelven a disposición horizontal. */
+@media (min-width: 1024px) {
+  .hero__affil {
+    flex-flow: row wrap;
+  }
 
-.hero__affil span + span::before {
-  content: '·';
-  position: absolute;
-  left: calc(-1 * var(--space-4) - 1px);
-  color: var(--accent);
+  .hero__affil span + span {
+    position: relative;
+    padding-left: var(--space-4);
+    margin-left: var(--space-4);
+    border-left: 1px solid var(--hairline-strong);
+  }
+
+  .hero__affil span + span::before {
+    position: absolute;
+    left: calc(-1 * var(--space-4) - 1px);
+    color: var(--accent);
+  }
 }
 
 /* ---- Header grande para páginas interiores ---- */
