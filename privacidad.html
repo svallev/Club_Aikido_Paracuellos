@@ -18,7 +18,7 @@
     <header class="site-header">
       <div class="header-inner">
         <a class="brand" href="/" aria-label="Aikido Paracuellos — inicio">
-          <span data-brand></span>
+          <img class="brand-mark" src="/images/logo-header.png" alt="" />
           <span class="brand-name">Aikido Paracuellos<small>Club Deportivo Elemental</small></span>
         </a>
         <nav class="main-nav" aria-label="Navegación principal">
@@ -144,9 +144,7 @@
     </footer>
 
     <script type="module">
-      import { brandMark } from '/src/js/icons.js';
       import { initAnimations } from '/src/js/animate.js';
-      document.querySelector('[data-brand]').innerHTML = brandMark();
       initAnimations();
     </script>
   </body>
