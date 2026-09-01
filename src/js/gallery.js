@@ -3,6 +3,8 @@
  * La fuente de datos puede ser la función Netlify o un fallback local.
  */
 
+import { enableSwipe } from './swipe.js';
+
 function buildLightbox(grid) {
   const container = document.createElement('div');
   container.className = 'lightbox';
@@ -32,6 +34,7 @@ function buildLightbox(grid) {
 
   const items = Array.from(grid.querySelectorAll('[data-src]'));
   let current = -1;
+  let removeSwipe = null;
 
   function show(index) {
     if (index < 0) index = items.length - 1;
@@ -49,11 +52,16 @@ function buildLightbox(grid) {
     show(index);
     closeBtn.focus();
     document.addEventListener('keydown', onKey);
+    removeSwipe = enableSwipe(container, {
+      onSwipeLeft: () => show(current + 1),
+      onSwipeRight: () => show(current - 1),
+    });
   }
 
   function close() {
     container.classList.remove('is-open');
     document.removeEventListener('keydown', onKey);
+    if (removeSwipe) { removeSwipe(); removeSwipe = null; }
     grid.querySelector('.media button')?.focus();
   }
 

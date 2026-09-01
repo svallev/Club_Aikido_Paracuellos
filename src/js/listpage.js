@@ -14,6 +14,8 @@
  * Cada página decide qué opciones activa.
  */
 
+import { enableSwipe } from './swipe.js';
+
 const MESES = ['ene', 'feb', 'mar', 'abr', 'may', 'jun', 'jul', 'ago', 'sep', 'oct', 'nov', 'dic'];
 
 /** Convierte '2025-05-24' en una entrada con día, mes y año. */
@@ -66,6 +68,7 @@ function openImageLightbox(list, index) {
   const prevBtn = overlay.querySelector('.lightbox__prev');
   const nextBtn = overlay.querySelector('.lightbox__next');
   let current = index;
+  let removeSwipe = null;
 
   function dataOf(card) {
     const figure = card.querySelector('[data-src]');
@@ -87,6 +90,7 @@ function openImageLightbox(list, index) {
   function close() {
     overlay.classList.remove('is-open');
     document.removeEventListener('keydown', onKey);
+    if (removeSwipe) { removeSwipe(); removeSwipe = null; }
     overlay.remove();
     cards[current]?.focus();
   }
@@ -104,6 +108,10 @@ function openImageLightbox(list, index) {
     if (e.target === overlay) close();
   });
   document.addEventListener('keydown', onKey);
+  removeSwipe = enableSwipe(overlay, {
+    onSwipeLeft: () => show(current + 1),
+    onSwipeRight: () => show(current - 1),
+  });
 
   show(index);
   overlay.classList.add('is-open');
