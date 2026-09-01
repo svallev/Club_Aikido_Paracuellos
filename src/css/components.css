@@ -400,7 +400,7 @@
 
 @media (max-width: 767px) {
   .schedule-panel__head {
-    padding: var(--space-2) var(--space-3);
+    padding: var(--space-2) var(--space-2);
   }
 }
 
