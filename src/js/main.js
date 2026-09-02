@@ -3,6 +3,7 @@
  * cabecera, menú móvil, inyección de iconos SVG y micro-interacciones.
  */
 import { socials } from './icons.js';
+import { trapFocus } from './focus-trap.js';
 
 /* Inyecta todos los iconos sociales como inline SVG en [data-social] */
 function injectSocials() {
@@ -47,6 +48,7 @@ function initMobileMenu() {
   const menu = document.querySelector('.mobile-menu');
   const close = menu?.querySelector('.mobile-menu-close');
   const links = menu ? Array.from(menu.querySelectorAll('a')) : [];
+  let release = null;
 
   if (!toggle || !menu) return;
 
@@ -58,9 +60,11 @@ function initMobileMenu() {
     // Reenviar foco
     if (open) {
       document.body.style.overflow = 'hidden';
+      release = trapFocus(menu);
       (close || links[0])?.focus();
     } else {
       document.body.style.overflow = '';
+      if (release) { release(); release = null; }
       toggle.focus();
     }
   };

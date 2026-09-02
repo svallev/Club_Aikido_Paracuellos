@@ -15,6 +15,7 @@
  */
 
 import { enableSwipe } from './swipe.js';
+import { trapFocus } from './focus-trap.js';
 
 const MESES = ['ene', 'feb', 'mar', 'abr', 'may', 'jun', 'jul', 'ago', 'sep', 'oct', 'nov', 'dic'];
 
@@ -69,6 +70,7 @@ function openImageLightbox(list, index) {
   const nextBtn = overlay.querySelector('.lightbox__next');
   let current = index;
   let removeSwipe = null;
+  let release = null;
 
   function dataOf(card) {
     const figure = card.querySelector('[data-src]');
@@ -91,6 +93,7 @@ function openImageLightbox(list, index) {
     overlay.classList.remove('is-open');
     document.removeEventListener('keydown', onKey);
     if (removeSwipe) { removeSwipe(); removeSwipe = null; }
+    if (release) { release(); release = null; }
     overlay.remove();
     cards[current]?.focus();
   }
@@ -115,6 +118,7 @@ function openImageLightbox(list, index) {
 
   show(index);
   overlay.classList.add('is-open');
+  release = trapFocus(overlay);
   closeBtn.focus();
 }
 

@@ -4,6 +4,7 @@
  */
 
 import { enableSwipe } from './swipe.js';
+import { trapFocus } from './focus-trap.js';
 
 function buildLightbox(grid) {
   const container = document.createElement('div');
@@ -21,20 +22,25 @@ function buildLightbox(grid) {
     <button class="lightbox__btn lightbox__next" aria-label="Imagen siguiente">
       <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg>
     </button>
-    <img class="lightbox__img" src="" alt="">
-    <p class="lightbox__caption"></p>
+    <img class="lightbox__img" src="" alt="" id="lightbox-img">
+    <p class="lightbox__caption" id="lightbox-caption"></p>
+    <p class="lightbox__counter sr-only" aria-live="polite"></p>
   `;
   document.body.appendChild(container);
 
   const img = container.querySelector('.lightbox__img');
   const caption = container.querySelector('.lightbox__caption');
+  const counter = container.querySelector('.lightbox__counter');
   const closeBtn = container.querySelector('.lightbox__close');
   const prevBtn = container.querySelector('.lightbox__prev');
   const nextBtn = container.querySelector('.lightbox__next');
 
+  container.setAttribute('aria-describedby', 'lightbox-caption');
+
   const items = Array.from(grid.querySelectorAll('[data-src]'));
   let current = -1;
   let removeSwipe = null;
+  let release = null;
 
   function show(index) {
     if (index < 0) index = items.length - 1;
@@ -45,11 +51,13 @@ function buildLightbox(grid) {
     img.src = src;
     img.alt = el.dataset.alt || '';
     caption.textContent = el.dataset.caption || '';
+    counter.textContent = `${current + 1} de ${items.length}`;
   }
 
   function open(index) {
     container.classList.add('is-open');
     show(index);
+    release = trapFocus(container);
     closeBtn.focus();
     document.addEventListener('keydown', onKey);
     removeSwipe = enableSwipe(container, {
@@ -62,7 +70,8 @@ function buildLightbox(grid) {
     container.classList.remove('is-open');
     document.removeEventListener('keydown', onKey);
     if (removeSwipe) { removeSwipe(); removeSwipe = null; }
-    grid.querySelector('.media button')?.focus();
+    if (release) { release(); release = null; }
+    items[current]?.focus();
   }
 
   function onKey(e) {
@@ -77,6 +86,14 @@ function buildLightbox(grid) {
       e.preventDefault();
       open(items.indexOf(t));
     }
+  });
+
+  grid.addEventListener('keydown', (e) => {
+    if (e.key !== 'Enter' && e.key !== ' ') return;
+    const t = e.target.closest('[data-src]');
+    if (!t) return;
+    e.preventDefault();
+    open(items.indexOf(t));
   });
 
   closeBtn.addEventListener('click', close);
@@ -95,11 +112,15 @@ function renderGrid(data) {
 
   grid.innerHTML = data
     .map(
-      (item) => `
-      <figure class="media gallery-item" data-src="${item.media_url}" data-alt="${item.caption || ''}" data-caption="${item.caption || ''}">
-        <img src="${item.media_url}" alt="${item.caption || 'Fotografía del club'}" loading="lazy" decoding="async">
-      </figure>
-    `
+      (item) => {
+        const caption = item.caption || 'Fotografía del club';
+        return `
+      <li>
+        <figure class="media gallery-item" data-src="${item.media_url}" data-alt="${item.caption || ''}" data-caption="${item.caption || ''}" role="button" tabindex="0" aria-label="${caption}">
+          <img src="${item.media_url}" alt="${caption}" loading="lazy" decoding="async">
+        </figure>
+      </li>`;
+      }
     )
     .join('');
 
@@ -126,9 +147,9 @@ export async function initGallery() {
       renderGrid(data.items || []);
     } catch {
       grid.innerHTML = `
-        <div class="state-box">
+        <div class="state-box" role="alert">
           <h3>La galería aún no está disponible</h3>
-          <p>Conecta la función de Instagram o añade imágenes a «/data/gallery.json».</p>
+          <p>Vuelve a intentarlo más tarde o revisa la configuración del sitio.</p>
         </div>
       `;
     }
