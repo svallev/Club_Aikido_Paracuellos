@@ -7,6 +7,16 @@
     "instructor": "Sara Rodríguez Prieto",
     "schedule": "Sábado de 11:30 a 13:00 h",
     "date": "2026-05-16",
+    "upcoming": false
+  },
+  {
+    "id": "bachata-2026",
+    "title": "Taller de Bachata",
+    "image": "/images/actividades/bachata.webp",
+    "club": "Club Aikido Paracuellos",
+    "instructor": "Melquiades Ochoa",
+    "schedule": "Sábado de 10:30 a 12:30 h",
+    "date": "2026-09-26",
     "upcoming": true
   },
   {
