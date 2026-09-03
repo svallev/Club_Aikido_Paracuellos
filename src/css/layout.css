@@ -76,9 +76,8 @@
   height: 44px;
   flex: none;
   object-fit: contain;
-  border-radius: var(--radius);
-  background: var(--surface);
-  box-shadow: 0 4px 16px -12px rgba(var(--shadow-color), 0.6);
+  border-radius: var(--radius-full);
+  box-shadow:  0 0 1px 2px var(--paper);
 }
 
 .brand-name {
