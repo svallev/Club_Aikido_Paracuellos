@@ -3,6 +3,8 @@ import { defineConfig } from 'vite';
 
 export default defineConfig({
   build: {
+    target: 'es2020',
+    cssCodeSplit: false,
     rollupOptions: {
       input: {
         main: resolve(__dirname, 'index.html'),
@@ -14,8 +16,14 @@ export default defineConfig({
         cookies: resolve(__dirname, 'cookies.html'),
         '404': resolve(__dirname, '404.html'),
       },
+      output: {
+        manualChunks(id) {
+          if (id.includes('node_modules/gsap')) {
+            return 'vendor-gsap';
+          }
+        },
+      },
     },
-    target: 'es2018',
   },
   server: {
     port: 5173,

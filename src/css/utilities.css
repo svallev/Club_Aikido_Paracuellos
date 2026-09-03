@@ -51,7 +51,7 @@
 
 /* Clases para animaciones de entrada (GSAP las activa) */
 .reveal {
-  will-change: transform, opacity;
+  /* will-change lo gestiona GSAP dinámicamente */
 }
 
 /* Prefijo estado inicial para scroll-loader sin GSAP */

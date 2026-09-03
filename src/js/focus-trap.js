@@ -16,13 +16,12 @@ const FOCUSABLE =
  */
 export function trapFocus(container) {
   const previous = document.activeElement;
+  const focusable = [...container.querySelectorAll(FOCUSABLE)].filter(
+    (el) => el.offsetParent !== null
+  );
 
   function onKey(e) {
     if (e.key !== 'Tab') return;
-
-    const focusable = [...container.querySelectorAll(FOCUSABLE)].filter(
-      (el) => el.offsetParent !== null
-    );
     if (!focusable.length) return;
 
     const first = focusable[0];

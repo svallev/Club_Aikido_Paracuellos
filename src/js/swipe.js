@@ -34,6 +34,7 @@ export function enableSwipe(el, { onSwipeLeft, onSwipeRight }) {
 
   el.addEventListener('touchstart', onTouchStart, { passive: true });
   el.addEventListener('touchend', onTouchEnd, { passive: true });
+  el.addEventListener('touchcancel', () => { tracking = false; }, { passive: true });
 
   return function remove() {
     el.removeEventListener('touchstart', onTouchStart);

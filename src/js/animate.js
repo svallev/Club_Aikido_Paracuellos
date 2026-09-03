@@ -10,12 +10,6 @@ gsap.registerPlugin(ScrollTrigger);
 
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-if (reduceMotion) {
-  // Colapsar a estático respetando la preferencia del usuario.
-  gsap.globalTimeline.pause();
-  ScrollTrigger.config({ ignoreMobileResize: true });
-}
-
 function initHero() {
   if (reduceMotion) {
     gsap.set('.hero__kicker, .hero__title, .hero__lead, .hero__cta, .enso', { clearProps: 'all' });
@@ -56,25 +50,25 @@ function initHero() {
 }
 
 function initReveals() {
+  if (reduceMotion) return;
   const els = gsap.utils.toArray('.reveal');
-  if (!els.length || reduceMotion) return;
+  if (!els.length) return;
 
   gsap.set(els, { opacity: 0, y: 28, filter: 'blur(4px)' });
 
-  els.forEach((el, i) => {
-    gsap.to(el, {
-      opacity: 1,
-      y: 0,
-      filter: 'blur(0px)',
-      duration: 0.8,
-      ease: 'power3.out',
-      delay: (i % 4) * 0.05,
-      scrollTrigger: {
-        trigger: el,
-        start: 'top 88%',
-        once: true,
-      },
-    });
+  ScrollTrigger.batch(els, {
+    onEnter: (batch) => {
+      gsap.to(batch, {
+        opacity: 1,
+        y: 0,
+        filter: 'blur(0px)',
+        duration: 0.8,
+        ease: 'power3.out',
+        stagger: 0.05,
+      });
+    },
+    start: 'top 88%',
+    once: true,
   });
 }
 
@@ -122,33 +116,17 @@ function initSchedule() {
 /* Imágenes: escala y fundido al entrar/salir (foto de club) */
 function initMedia() {
   if (reduceMotion) return;
-  const items = gsap.utils.toArray('[data-media-scroll]');
-  items.forEach((item) => {
-    gsap.fromTo(
-      item,
-      { scale: 0.88, opacity: 0.3 },
-      {
-        scale: 1,
-        opacity: 1,
-        ease: 'none',
-        scrollTrigger: {
-          trigger: item,
-          start: 'top bottom',
-          end: 'top 30%',
-          scrub: 0.8,
-        },
-      }
-    );
-    gsap.to(item, {
-      opacity: 0.35,
-      ease: 'none',
+  gsap.utils.toArray('[data-media-scroll]').forEach((item) => {
+    const tl = gsap.timeline({
       scrollTrigger: {
         trigger: item,
-        start: 'bottom 50%',
+        start: 'top bottom',
         end: 'bottom top',
         scrub: 0.8,
       },
     });
+    tl.fromTo(item, { scale: 0.88, opacity: 0.3 }, { scale: 1, opacity: 1, ease: 'none' });
+    tl.to(item, { opacity: 0.35, ease: 'none' });
   });
 }
 
@@ -158,4 +136,5 @@ export function initAnimations() {
   initSchedule();
   initMedia();
   ScrollTrigger.refresh();
+  return () => ScrollTrigger.getAll().forEach((st) => st.kill());
 }

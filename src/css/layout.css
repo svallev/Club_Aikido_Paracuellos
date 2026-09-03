@@ -48,7 +48,7 @@
   gap: var(--space-4);
   max-width: var(--container);
   margin-inline: auto;
-  padding: 18px 26px;
+  padding: var(--header-pad-y) var(--header-pad-x);
   background: var(--header-bg);
   backdrop-filter: blur(14px) saturate(1.4);
   -webkit-backdrop-filter: blur(14px) saturate(1.4);
