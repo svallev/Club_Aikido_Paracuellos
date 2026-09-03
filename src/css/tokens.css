@@ -83,4 +83,14 @@
   /* ---- Utilidades de texto ---- */
   --shadow-card: 0 1px 2px rgba(var(--shadow-color), 0.04),
     0 12px 32px -16px rgba(var(--shadow-color), 0.18);
+
+  /* ---- Header dark pill ---- */
+  --header-bg: rgba(10, 10, 10, 0.8);
+  --header-bg-scrolled: rgba(10, 10, 10, 0.92);
+  --header-border: rgba(255, 255, 255, 0.06);
+  --header-shadow: 0 16px 48px rgba(0, 0, 0, 0.38);
+  --header-text: #ffffff;
+  --header-text-muted: rgba(255, 255, 255, 0.6);
+  --header-hover-bg: rgba(255, 255, 255, 0.1);
+  --header-accent: #ff3d2e;
 }
