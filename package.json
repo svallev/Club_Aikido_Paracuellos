@@ -8,7 +8,7 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "lint": "eslint src/**/*.js && stylelint 'src/css/**/*.css'",
+    "lint": "eslint 'src/**/*.js' 'api/**/*.js' && stylelint 'src/css/**/*.css'",
     "format": "prettier --write \"src/**/*.{js,css,html,json}\"",
     "images:optimize": "node scripts/optimize-images.mjs",
     "test:a11y": "axe localhost:5173 --exit"

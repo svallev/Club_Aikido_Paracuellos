@@ -40,12 +40,12 @@ skills-lock.json
 .claude/settings.json
 .claude/settings.local.json
 
-# Netlify (caché local / estado de despliegue)
-.netlify/
+# Vercel (caché local / estado de despliegue)
+.vercel/
 
 # Variables de despliegue locales
-.netlify/state.json
-.netlify/deploy.json
+.vercel/project.json
+.vercel/deploy.json
 
 # Offline / caché
 .cache/

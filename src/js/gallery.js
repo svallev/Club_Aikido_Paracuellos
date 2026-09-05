@@ -1,6 +1,6 @@
 /**
  * gallery.js — cuadrícula de Instagram + lightbox accesible.
- * La fuente de datos puede ser la función Netlify o un fallback local.
+ * La fuente de datos puede ser la función Vercel (/api/instagram) o un fallback local.
  */
 
 import { createLightbox } from './lightbox.js';
@@ -44,7 +44,7 @@ export async function initGallery() {
   if (!grid) return;
 
   try {
-    const res = await fetch('/.netlify/functions/instagram');
+    const res = await fetch('/api/instagram');
     if (!res.ok) throw new Error('bad status');
     const data = await res.json();
     const items = data.items || [];

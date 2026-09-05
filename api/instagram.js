@@ -1,8 +1,9 @@
 /**
- * netlify/functions/instagram.js
- * Proxía el feed de Instagram usando el "Instagram Basic Display API".
+ * api/instagram.js
+ * Serverless function (Vercel, Node.js runtime) que actúa de proxy para
+ * la Instagram Basic Display API.
  *
- * Variables de entorno (configúralas en Netlify):
+ * Variables de entorno (configúralas en Vercel → Project Settings → Environment Variables):
  *   INSTAGRAM_APP_ID     — ID de la app de Facebook/Instagram
  *   INSTAGRAM_APP_SECRET — Secreto de la app
  *   INSTAGRAM_TOKEN      — Token de acceso de larga duración del usuario
@@ -11,16 +12,11 @@
  * para que el frontend use /data/gallery.json (fallback local).
  */
 
-const CACHE_MINUTES = 60;
+const CACHE_SECONDS = 60 * 60; // 1 hora
 
-const json = (body, status = 200) => ({
-  statusCode: status,
-  headers: {
-    'Content-Type': 'application/json',
-    'Cache-Control': `public, max-age=${CACHE_MINUTES * 60}`,
-  },
-  body: JSON.stringify(body),
-});
+function setCacheHeaders(res) {
+  res.setHeader('Cache-Control', `public, max-age=${CACHE_SECONDS}`);
+}
 
 async function fetchInstagram() {
   const token = process.env.INSTAGRAM_TOKEN;
@@ -48,12 +44,14 @@ async function fetchInstagram() {
   return { items };
 }
 
-export async function handler() {
+export default async function handler(_req, res) {
   try {
     const payload = await fetchInstagram();
-    return json(payload);
+    setCacheHeaders(res);
+    return res.status(200).json(payload);
   } catch (err) {
     // Devuelve vacío para que el frontend use el fallback local.
-    return json({ items: [], error: String(err && err.message) }, 200);
+    setCacheHeaders(res);
+    return res.status(200).json({ items: [], error: String(err && err.message) });
   }
 }

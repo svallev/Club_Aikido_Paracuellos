@@ -27,7 +27,7 @@ export default [
     },
   },
   {
-    files: ['netlify/functions/**/*.js'],
+    files: ['api/**/*.js'],
     languageOptions: {
       ecmaVersion: 'latest',
       sourceType: 'module',

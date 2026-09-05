@@ -225,12 +225,21 @@ Todas las imágenes deben cumplir estos requisitos:
 
 Una vez editados los JSON y subidas las imágenes:
 
-### Opción 1: Panel de Netlify (recomendada)
+### Opción A: Vercel (automática, recomendada)
 
-1. Abrir el panel de Netlify del sitio.
-2. Ir a **Deploys** → **Trigger deploy** → **Deploy site**.
+1. Hacer los cambios en `public/data/` y/o subir las imágenes a
+   `public/images/`.
+2. Hacer commit y push a la rama conectada al proyecto de Vercel
+   (normalmente `main`).
+3. Vercel detecta el push y despliega automáticamente en 1–2 minutos.
+4. La web se actualiza sin más intervención.
+
+### Opción B: Panel de Vercel (manual)
+
+1. Abrir el panel del proyecto en Vercel.
+2. Ir a **Deployments** → en el último deploy, **Redeploy**.
 3. Esperar a que termine (1–2 minutos).
-4. La web se actualizará automáticamente.
+4. La web se actualiza con el último commit de la rama.
 
 ### Opción 2: Si se tiene acceso al repositorio Git
 
@@ -240,10 +249,10 @@ git add public/data/ public/images/
 git commit -m "Actualizar contenido: [actividades/cursos/galería]"
 git push
 
-# 2. Netlify despliega automáticamente al hacer push
+# 2. Vercel despliega automáticamente al hacer push
 ```
 
-> **Nota:** Solo funciona si el repositorio está conectado a Netlify con deploy automático.
+> **Nota:** Solo funciona si el repositorio está conectado a Vercel con deploy automático (lo habitual).
 
 ---
 
@@ -289,7 +298,7 @@ Si se rompe el JSON, la página no cargará contenido. Para detectar errores:
 | Añadir foto a galería | `public/data/gallery.json` | Añadir objeto + subir imagen a `public/images/gallery/` |
 | Marcar actividad como pasada | `public/data/actividades.json` | Cambiar `upcoming` a `false` |
 | Marcar curso como próximo | `public/data/cursos.json` | Cambiar `upcoming` a `true` |
-| Publicar cambios | Panel de Netlify | Deploys → Trigger deploy |
+| Publicar cambios | Push a Git (o redeploy en Vercel) | `git push` desde la rama conectada |
 
 ---
 
